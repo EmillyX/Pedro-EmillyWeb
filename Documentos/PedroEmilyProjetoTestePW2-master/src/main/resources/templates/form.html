@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layout">
+<meta charset="UTF-8" />
+
+<head>
+  <script>
+    function validar() {
+
+
+
+      var erroNome = document.getElementById("ErroNome");
+
+      if (document.form.nome.value == "" || document.form.nome.value.length <= 3) {
+        erroNome.style = "color:red";
+        erroNome.innerHTML = 'preencha corretamente o NOME pfvr';
+        form.nome.focus();
+        return false;
+      }
+      else {
+        erroNome.innerHTML = '';
+      }
+
+
+        var erroEmail = document.getElementById("ErroEmail");
+
+        if (document.form.email.value == "" || form.email.value.indexOf("@") == -1 || form.email.value.indexOf(".") == -1) {
+          erroEmail.style = "color:red";
+          erroEmail.innerHTML = 'preencha corretamente o Email pfvr';
+          form.email.focus();
+          return false;
+        }
+        else {
+          erroEmail.innerHTML = '';
+        }
+
+      
+
+        var erroCpf = document.getElementById("ErroCpf");
+
+        if (document.form.cpf.value == "" || document.form.cpf.value.length < 11 || document.form.cpf.value.length > 11) {
+          erroCpf.style = "color: red";
+          erroCpf.innerHTML = 'preencha corretamente o CPF pfvr';
+          form.cpf.focus();
+          return false;
+        }
+        else {
+          erroCpf.innerHTML = '';
+        }
+
+        var programacaoValidar = document.getElementById('programacao').checked;
+        var redeDeCompuradoresValidar = document.getElementById('redes').checked;
+        var manuntencaoDeComputadoresValidar = document.getElementById('manutencao').checked;
+
+        var erroAreasDeAtuacaoVazio = document.getElementById("ErroAreasDeAtuacaoVazio");
+
+        if (programacaoValidar == false && redeDeCompuradoresValidar == false && manuntencaoDeComputadoresValidar == false) {
+          erroAreasDeAtuacaoVazio.style = "color : red";
+          erroAreasDeAtuacaoVazio.innerHTML = 'preencha corretamente';
+          return false;
+        }
+        else {
+          erroAreasDeAtuacaoVazio.innerHTML = '';
+        }
+
+
+        var erroSenha = document.getElementById("ErroSenha");
+        var erroRepetirSenha = document.getElementById("ErroRepetirSenha");
+
+
+        if (document.form.senha.value == "" || document.form.senha.value <= 6) {
+          erroSenha.style = "color:red";
+          erroSenha.innerHTML = 'senha deve ter no minimo 6 digitos';
+          return false;
+        }
+        else {
+
+          if (document.form.senha.value != document.form.repetirSenha.value) {
+            erroRepetirSenha.style = "color:red";
+            erroRepetirSenha.innerHTML = 'Repita a senha corretamente';
+            return false;
+          }
+          else {
+            erroRepetirSenha.innerHTML = '';
+          }
+          erroSenha.innerHTML = '';
+        }
+
+
+      
+    }
+
+
+
+
+  </script>
+</head>
+<style>
+  .body {
+    background-image: url("image/oreo.png");
+  }
+</style>
+
+<body style="background-color:paleturquoise">
+
+  <h2 style=text-align:center;>FORMULÁRIO DE CADASTRO</h2>
+
+  <form style="text-align:center; border-style:solid; border-width: 2px" name="form" method="POST" action="form">
+    <br>
+    NOME:
+    <input type="text" id="nome" name="nome" value=""><br><span id="ErroNome"></span>
+    <br> E-MAIL:
+    <input type="text" id="email" name="email" value=""><br><span id="ErroEmail"></span>
+    <br> CPF:
+    <input type="text" id="cpf" name="cpf" value="" style="width: 16%; "><br><span id="ErroCpf"></span>
+    <br>
+
+    SEXO:
+    <select name="campoSexo">
+      <option id="masculino" value="">Masculino</option>
+      <option id="feminino" value="">Feminino</option>
+    </select> <br><br>
+
+    MÓDULO:
+    <input type="radio" name="modulo" id="primeiro" value="primeiro" checked> Primeiro<br>
+    <i style="margin-right: 4.7%"></i>
+    <input type="radio" name="modulo" id="segundo" value="segundo"> Segundo<br>
+    <i style="margin-right: 4.7%"></i>
+    <input type="radio" name="modulo" id="terceiro" value="terceiro"> Terceiro
+    <br><br>
+
+    ÁREAS DE ATUAÇÃO
+    <input type="checkbox" id="programacao" value="Programação" name="areas"> Programação<br>
+    <i style="margin-right: 7.6%"></i>
+    PREFERIDAS:
+    <input type="checkbox" id="redes" value="Redes de Computadores" name="areas"> Redes de Computadores<br>
+    <i style="margin-right: 16.8%"></i>
+    <input type="checkbox" id="manutencao" value=" Manutençao de Computadores" name="areas"> Manutençao de Computadores
+    <br><span id="ErroAreasDeAtuacaoVazio"></span><br>
+
+    SENHA:
+    <input type="password" id="senha" name="senha" style="width: 20%;">
+    <br><span id="ErroSenha"></span><br>
+    REPETIR SENHA:
+    <input type="password" id="repetirSenha" name="repetirSenha" style="width: 15%;">
+    <br><span id="ErroRepetirSenha"></span><br><br>
+
+    <i style="margin-right: 3%"></i>
+    <input type="submit" id="gravar" value="Gravar" onclick="return validar();">
+    <input type="reset" id="limpar" value="Limpar">
+    <br><br>
+  </form>
+
+  <br><br>
+
+</body>
+
+</html>
