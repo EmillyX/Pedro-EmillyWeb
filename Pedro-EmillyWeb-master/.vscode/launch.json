@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<formulariojs>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.edu.ifal.formulariojs.DemoApplication",
+            "projectName": "formulariojs",
+            "args": ""
+        }
+    ]
+}
