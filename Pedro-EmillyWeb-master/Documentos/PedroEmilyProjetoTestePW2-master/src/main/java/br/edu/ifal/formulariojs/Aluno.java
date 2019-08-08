@@ -73,6 +73,19 @@ public class Aluno{
         return areas;
     }
 
+    public String getAreasPorString(){
+        String ret = "";
+        for (String var : areas) {
+            ret = ret + var + ",";
+        }
+        return ret;
+    }
+
+    public String getTodosCampos() {
+		return nome + ", " + email + ", " + modulo + ", " + getAreasPorString();
+	}
+
+
     public void setAreas(String[] areas) {
         this.areas = areas;
     }
@@ -83,6 +96,19 @@ public class Aluno{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return getTodosCampos();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
