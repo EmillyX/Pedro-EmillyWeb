@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
@@ -46,7 +46,7 @@ public class Controlador{
 
     @RequestMapping("/listar_alunos")
     public ModelAndView listarAlunos() {
-        ModelAndView retorno = new ModelAndView("Registro.html");
+        ModelAndView retorno = new ModelAndView("registro.html");
         Iterable<Aluno> alunos = estudante.findAll();
         retorno.addObject("alunos", alunos);
         return retorno;
