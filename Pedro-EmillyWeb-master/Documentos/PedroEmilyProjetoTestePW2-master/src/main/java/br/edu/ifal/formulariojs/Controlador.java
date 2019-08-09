@@ -19,7 +19,7 @@ public class Controlador{
         return new ModelAndView("form.html");
     }
 
-    @RequestMapping("/form")
+    /*@RequestMapping("/form")
     public String cadastro(Aluno aluno){
        String dados="";
         estudante.save(aluno);
@@ -34,7 +34,7 @@ public class Controlador{
             //blob resover no banco 
         }
         return dados;
-    }  
+    }  */
 
     @RequestMapping("/cadastrar_aluno")
     public ModelAndView cadastroAluno(Aluno aluno, RedirectAttributes redirect) {
