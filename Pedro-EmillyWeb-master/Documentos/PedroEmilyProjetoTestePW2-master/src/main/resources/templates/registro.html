@@ -6,7 +6,8 @@ layout:decorate="layout">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <title>Registro</title>
   </head>
   <body>
@@ -14,6 +15,10 @@ layout:decorate="layout">
         <a class="navbar-brand">
             <h2 style="text-align:center; color: white;">LISTA DE USUARIO</h2>
         </a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Digite" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquise</button>
+        </form>
     </nav>
     <br>
     <table class="table table-striped">
@@ -25,7 +30,6 @@ layout:decorate="layout">
             <th scope="col">CPF</th>
             <th scope="col">SEXO</th>
             <th scope="col">MODÚLO</th>
-            <th scope="col">ÁREAS</th>
           </tr>
         </thead>
         <tbody>
@@ -36,11 +40,13 @@ layout:decorate="layout">
             <td th:text="${aluno.cpf}"></td>
             <td th:text="${aluno.sexo}"></td>
             <td th:text="${aluno.modulo}"></td>
-            <td th:text="${aluno.areas}"></td>
-            <td><a th:href="@{'/excluir_aluno/' + ${aluno.id}}"><img src="img/delete.png" height="16" width="16"></a></td>                
+            <td><a th:href="@{'/excluir_aluno/' + ${aluno.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            <td><a th:href="@{'/atualizar_aluno/' + ${aluno.id}}"><i class="fa fa-refresh" aria-hidden="true"></i>
+            </a></td>                
+            </td>                
             <td></td>
           </tr>
-      </table>
+      </table>    
    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

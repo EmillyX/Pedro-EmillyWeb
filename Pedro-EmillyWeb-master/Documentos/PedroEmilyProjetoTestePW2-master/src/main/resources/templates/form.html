@@ -55,6 +55,11 @@
                 erroCpf.innerHTML = '';
             }
 
+            if(document.form.sexo.value==""){
+            form.sexo.focus();
+            return false;
+        }
+
             var programacaoValidar = document.getElementById('programacao').checked;
             var redeDeCompuradoresValidar = document.getElementById('redes').checked;
             var manuntencaoDeComputadoresValidar = document.getElementById('manutencao').checked;
@@ -109,7 +114,7 @@
         <div class="row justify-content-md-center">
             <div class="col col-lg-7">
                 <br>
-                <form name="form" method="POST" action="form">
+                <form name="form" method="POST" action="/cadastrar_aluno">
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">NOME:</label>
                         <div class="col-sm-10">
@@ -128,15 +133,16 @@
                         <label for="inputEmail3" class="col-sm-2 col-form-label">CPF:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="cpf" name="cpf" value=""
-                                placeholder="Ex: 00000000000"><span id="ErroNome"></span>
+                                placeholder="Ex: 00000000000"><span id="ErroCpf"></span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">SEXO:</label>
                         <div class="col-sm-4">
-                            <select id="campoSexo" class="form-control">
-                                <option id="masculino" value="" selected>Masculino</option>
-                                <option id="feminino" value=""> Feminino</option>
+                            <select id="campoSexo" class="form-control" name=sexo>
+                                <option value="" selected>Selecione</option>
+                                <option id="masculino" value="M">Masculino</option>
+                                <option id="feminino" value="F"> Feminino</option>
                             </select>
                         </div>
                     </div>
@@ -198,8 +204,7 @@
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary" id="gravar" value="Gravar"
                                 onclick="return validar();">Gravar</button>
-                            <button type="reset" class="btn btn-primary" id="limpar" value="Limpar">Limpar</button>
-                        </div>
+                          </div>
                     </div>
                 </form>
             </div>

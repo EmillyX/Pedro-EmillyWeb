@@ -66,8 +66,8 @@ public class Controlador{
             return retorno;
         }
 
-       /* @RequestMapping("/atualizar_aluno/{idAluno}")
-        public ModelAndView atualizar(@PathVariable("idAluno") Long alunoID) {
+        /*@RequestMapping("/atualizar_aluno/{idAluno}")
+        public ModelAndView atualizar(@PathVariable("idAluno") Long alunoID){
             Optional<Aluno> opcao = estudante.findById(alunoID);
             ModelAndView retorno = new ModelAndView("form.html");
             if(opcao.isPresent()){
@@ -76,8 +76,7 @@ public class Controlador{
                 return retorno;
             }
             return retorno;
-        }*/
-        
+        }*/        
     }
 
 
